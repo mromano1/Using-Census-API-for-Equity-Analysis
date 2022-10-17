@@ -1,6 +1,6 @@
 # Using Census APIs for Equity Analysis
 
-This workshop will demonstrate how to use US Decennial Census and American Community Survey Data (ACS) Application Programming Interfaces (APIs). We will use these basic operations in order to calculate and map ethnicity, gender, mobility, poverty rates and journey to work in New York City. We will pull data from the [ACS 5-year estimates for 2020](https://www.census.gov/data/developers/data-sets/acs-5year.html) for this workshop.
+This workshop will demonstrate how to use US Decennial Census and American Community Survey Data (ACS) Application Programming Interfaces (APIs). We will use these basic operations in order to calculate and map poverty rates in New York State. (A similiar script can be applied to calculate ethnicity, gender, mobility,  and journey to work, but will not be covered here). We will pull data from the [ACS 5-year estimates for 2020](https://www.census.gov/data/developers/data-sets/acs-5year.html) for this workshop.
 
 Prerequisites:
 1. Anaconda 3 installed
