@@ -714,7 +714,7 @@ ax.set_title('Poverty Rates (%) in New York State (2020 American Community Surve
 
 
     
-![png](output_32_1.png)
+![png](output_32_1.png)[Image of NYS counties and poverty rate](https://github.com/mromano1/Using-Census-API-for-Equity-Analysis/blob/main/output_32_1.png?raw=true)
     
 
 
@@ -727,8 +727,6 @@ First, you will want to create an output path to store your data if one does not
 Then, you will want to set up some error handling to make sure the file directory is created.  When an error(exception) occurs, Python will generate an error message and the program will crash.  We can handle these errors using the <span style="color:red">try</span> statement. This way, instead of the program crashing, the <span style="color:red">except</span> block will be executed.  You can define as many exception blocks as you'd like.  You can use <span style="color:red">else</span> to define code to be executed if no errors are raised.  Another good practice is to define a <span style="color:red">finally</span> block, which will be executed regardless of any error.  <span style="color:red">Finally</span> is often used to clean up resources and close objects when the script is done. 
 
 After that, just write the file to the directory.  The variable <span style="color:red">ny_poverty_county</span> contains all the data we want to export, so we will replace "gpd" with "ny_poverty_county" to get <span style="color:red">ny_poverty_county.to_file</span>.  NOTE: I needed to use the <span style="color:red">encoding='utf-8'</span> parameter.  I've not seen this in all code samples, so be aware that you might need this as well.
-
-You may be wondering what the text highlighted in pink is below.  Its not an error--its just a message warning you that the column names have been shortened because shapefiles only support 13 character field names.  If that is all you see, then that means your file has written successfully!
 
 ### <span style="color:green">Note: You will need to add a directory location to get this to work.  I've removed mine below.</span>
 
