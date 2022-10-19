@@ -728,21 +728,36 @@ Then, you will want to set up some error handling to make sure the file director
 
 After that, just write the file to the directory.  The variable <span style="color:red">ny_poverty_county</span> contains all the data we want to export, so we will replace "gpd" with "ny_poverty_county" to get <span style="color:red">ny_poverty_county.to_file</span>.  NOTE: I needed to use the <span style="color:red">encoding='utf-8'</span> parameter.  I've not seen this in all code samples, so be aware that you might need this as well.
 
+Shapefile is the default output, but you can set other outputs. You need to be careful when changing the default output type--they require different levels of finesse to get them to work correctly. Below are some examples. When exporting to GeoJSON, the file extension changed to .json, and the parameter driver='GeoJSON' was included. However, when exporting to csv, ny_poverty_county.to_file() changed to ny_poverty_county.to_csv(). Also note that in the csv example below, the geometry was removed using the drop function.
+
 ### <span style="color:green">Note: You will need to add a directory location to get this to work.  I've removed mine below.</span>
 
 
 ```python
-# Create a output path for the data
-# Write data to shapefile
+try:
+    ny_poverty_county.to_file(r"\\insert\your\directory\here.shp", encoding='utf-8')
+    print("Shapefile successfully written to directory")
+except OSError as error:
+    print ("Shapefile cannot be written to directory")
+
+# Write data to topojson
 
 try:
-    ny_poverty_county.to_file(r"\\Enter your directory and shapefile location here", encoding='utf-8')
-    print("File successfully written to directory")
+    ny_poverty_county.to_file(r"\\insert\your\directory\here.json", driver='GeoJSON', encoding='utf-8')
+    print("GeoJson file successfully written to directory")
 except OSError as error:
-    print ("File cannot be written to directory")
-   
+    print ("GeoJson file cannot be written to directory")
 
-    File successfully written to directory
-    
+# Write data to csv
+
+try:
+    ny_poverty_county.drop('geometry',axis=1).to_csv(r"\\insert\your\directory\here.csv", encoding='utf-8')   
+    print("CSV successfully written to directory")
+except OSError as error:
+    print ("CSV cannot be written to directory")
+
+Shapefile successfully written to directory
+TopoJson file successfully written to directory
+CSV successfully written to directory
 
 # Thanks for giving me the opportunity to teach you all!  I hope you enjoyed it!
