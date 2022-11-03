@@ -757,7 +757,7 @@ except OSError as error:
     print ("CSV cannot be written to directory")
 
 Shapefile successfully written to directory
-TopoJson file successfully written to directory
+GeoJson file successfully written to directory
 CSV successfully written to directory
 
 # Thanks for giving me the opportunity to teach you all!  I hope you enjoyed it!
